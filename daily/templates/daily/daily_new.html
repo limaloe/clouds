@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if image %}  
+        <h3>Succesfully uploaded : {{image.title}}</h3> 
+            <img src="{{MEDIA_URL}}{{ post.images.url }}" alt="connect" height="500px" width="500px">
+        {% endif %}
+
+        {{ form.as_p }}
+        <input type="submit" class="save btn btn-default" name="submit" value="Save"/>
+    </form>
+{% endblock %}
