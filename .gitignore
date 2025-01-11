@@ -3,9 +3,8 @@
 *.pyc
 *~
 __pycache__
-len
+jen
 .env
 db.sqlite3
 /static
 .DS_Store
-media
