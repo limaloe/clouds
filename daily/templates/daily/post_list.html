@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for post in posts %}
+        <div class="post">
+        <div class="col">
+
+            <div class="date">
+                {{ post.published }}
+            </div>
+            <h1><a href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a></h1>
+            <img src="{{ post.images.url }}" class="image-detail" height="250px" width="250px">
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div></div>
+        <br><br>
+    {% endfor %}
+
+    <br>
+    {% include 'pagination.html' with page=posts %}
+
+{% endblock %}

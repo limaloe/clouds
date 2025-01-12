@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post">
+        {% if post.published %}
+            <div class="date">
+                {{ post.published }}
+            </div>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <img src="{{ post.images.url }}" class="image-detail" height="500px" width="500px">
+        <p>{{ post.text|linebreaksbr }}</p><br>
+
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
